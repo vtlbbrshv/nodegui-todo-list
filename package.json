@@ -4,7 +4,6 @@
   "main": "index.js",
   "author": "Vitaly Bobreshov <vtlbbrshv@gmail.com>",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "build": "webpack -p",
     "dev": "webpack --mode=development",
