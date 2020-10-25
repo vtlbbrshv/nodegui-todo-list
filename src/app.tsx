@@ -20,7 +20,8 @@ const App = () => {
     [todos],
   );
 
-  //функция почему-то юзает старый список туду
+  // функция почему-то юзает старый список туду
+  // возможно дело в том что в ивент хендлер у чекбокса передается именно колбек
   const changeTodoStatus = (id: number, checked: boolean) => {
     console.log('FUNCTION: ', todos);
     changeTodos([
