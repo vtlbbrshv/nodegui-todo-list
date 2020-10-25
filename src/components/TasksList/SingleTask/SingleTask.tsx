@@ -16,7 +16,7 @@ export const SingleTask = ({
         changeTodoStatus(todo.id, checked);
       },
     },
-    [],
+    [changeTodoStatus],
   );
 
   return (

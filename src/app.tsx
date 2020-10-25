@@ -1,4 +1,4 @@
-import { Window, hot, Text, View } from '@nodegui/react-nodegui';
+import { Window, hot, View } from '@nodegui/react-nodegui';
 import React from 'react';
 import { QIcon } from '@nodegui/nodegui';
 import nodeguiIcon from '../assets/nodegui.jpg';
@@ -10,7 +10,7 @@ const winIcon = new QIcon(nodeguiIcon);
 
 const App = () => {
   const [todos, changeTodos] = React.useState<any>(initialTodos);
-  console.log('STATE: ', todos);
+
   const doneTodos = React.useMemo(() => todos.filter((el: any) => el.isDone), [
     todos,
   ]);
@@ -20,15 +20,10 @@ const App = () => {
     [todos],
   );
 
-  // функция почему-то юзает старый список туду
-  // возможно дело в том что в ивент хендлер у чекбокса передается именно колбек
   const changeTodoStatus = (id: number, checked: boolean) => {
-    console.log('FUNCTION: ', todos);
-    changeTodos([
-      ...todos.map((el: any) =>
-        el.id === id ? { ...el, isDone: checked } : el,
-      ),
-    ]);
+    changeTodos(
+      todos.map((el: any) => (el.id === id ? { ...el, isDone: checked } : el)),
+    );
   };
 
   return (
