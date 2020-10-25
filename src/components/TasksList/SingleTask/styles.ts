@@ -1,6 +1,8 @@
 export const singleTaskStyles = `
 flex: 1;
 flex-grow: 0;
+flex-direction: 'row';
+justify-content: 'space-between';
   background: #e3ffff;
   border: 1px solid #c0fcfc;
   border-radius: 10px;
