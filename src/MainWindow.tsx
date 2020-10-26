@@ -1,4 +1,4 @@
-import { Window, View } from '@nodegui/react-nodegui';
+import { Window, View, ScrollArea } from '@nodegui/react-nodegui';
 import React from 'react';
 import { QIcon } from '@nodegui/nodegui';
 import nodeguiIcon from '../assets/nodegui.jpg';
@@ -12,14 +12,8 @@ const winIcon = new QIcon(nodeguiIcon);
 const MainWindow = () => {
   const [todos, changeTodos] = React.useState<any>(initialTodos);
 
-  const doneTodos = React.useMemo(() => todos.filter((el: any) => el.isDone), [
-    todos,
-  ]);
-
-  const notDoneTodos = React.useMemo(
-    () => todos.filter((el: any) => !el.isDone),
-    [todos],
-  );
+  const doneTodos = todos.filter((el: any) => el.isDone);
+  const notDoneTodos = todos.filter((el: any) => !el.isDone);
 
   const changeTodoStatus = (id: number, checked: boolean) => {
     changeTodos(
@@ -28,22 +22,28 @@ const MainWindow = () => {
   };
 
   const addTodo = () => {
-    console.log(todos);
     changeTodos([
       ...todos,
       { id: todos.length + 1, text: 'New task!', isDone: false },
     ]);
   };
 
+  // TODO: переписать на гридвью
   return (
     <Window windowIcon={winIcon} windowTitle="Todo" minSize={minSize}>
-      <View>
+      <View style="flex: 1; flex-direction: 'column'; align-items: 'stretch'">
         <TopBar onAdd={addTodo} />
-        <View style="flex: 1; flex-direction: 'row'; align-items: 'stretch';">
-          <TasksList todos={notDoneTodos} changeTodoStatus={changeTodoStatus} />
-          <View style="width: 1px; background: black;" />
-          <TasksList todos={doneTodos} changeTodoStatus={changeTodoStatus} />
-        </View>
+
+        <ScrollArea style="flex: 1">
+          <View style='flex: 1; flex-direction: "row";'>
+            <TasksList
+              todos={notDoneTodos}
+              changeTodoStatus={changeTodoStatus}
+            />
+            <View style="width: 1px; background: black;" />
+            <TasksList todos={doneTodos} changeTodoStatus={changeTodoStatus} />
+          </View>
+        </ScrollArea>
       </View>
     </Window>
   );
