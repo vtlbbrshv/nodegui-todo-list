@@ -1,7 +1,7 @@
 import { View, Text, CheckBox, useEventHandler } from '@nodegui/react-nodegui';
 import React from 'react';
 import { QCheckBoxSignals } from '@nodegui/nodegui';
-import { singleTaskStyles, textStyles } from './styles';
+import { styles } from '../styles';
 
 export const SingleTask = ({
   todo,
@@ -20,8 +20,8 @@ export const SingleTask = ({
   );
 
   return (
-    <View style={singleTaskStyles}>
-      <Text style={textStyles}>{todo.text}</Text>
+    <View style={styles.task}>
+      <Text style={styles.taskText}>{todo.text}</Text>
       <CheckBox on={buttonHandler} checked={todo.isDone} />
     </View>
   );

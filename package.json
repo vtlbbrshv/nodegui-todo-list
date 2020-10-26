@@ -13,6 +13,7 @@
   "dependencies": {
     "@nodegui/react-nodegui": "^0.9.0",
     "@types/uuid": "^8.3.0",
+    "nodegui-stylesheet": "^0.3.0",
     "open": "^7.2.1",
     "react": "^16.13.1"
   },
@@ -21,6 +22,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@nodegui/devtools": "^1.0.1",
     "@nodegui/packer": "^1.4.1",
     "@types/node": "^14.11.1",
     "@types/react": "^16.9.49",

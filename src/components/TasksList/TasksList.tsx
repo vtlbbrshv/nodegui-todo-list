@@ -1,6 +1,6 @@
-import { Text, View, Window } from '@nodegui/react-nodegui';
+import { View } from '@nodegui/react-nodegui';
 import React from 'react';
-import { taskListStyles } from './styles';
+import { styles } from './styles';
 import { SingleTask } from './SingleTask/SingleTask';
 
 export const TasksList = ({
@@ -11,7 +11,7 @@ export const TasksList = ({
   changeTodoStatus: (id: number, checked: boolean) => void;
 }) => {
   return (
-    <View style={taskListStyles}>
+    <View style={styles.list}>
       {todos.map((el: any) => (
         <SingleTask key={el.id} todo={el} changeTodoStatus={changeTodoStatus} />
       ))}
