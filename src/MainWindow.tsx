@@ -1,9 +1,11 @@
 import { Window, View } from '@nodegui/react-nodegui';
 import React from 'react';
 import { QIcon } from '@nodegui/nodegui';
+import { v4 } from 'uuid';
 import nodeguiIcon from '../assets/nodegui.jpg';
 import { TasksList } from './components/TasksList/TasksList';
 import initialTodos from './todos';
+import TopBar from './components/TopBar/TopBar';
 
 const minSize = { width: 500, height: 520 };
 const winIcon = new QIcon(nodeguiIcon);
@@ -26,12 +28,19 @@ const MainWindow = () => {
     );
   };
 
+  const addTodo = () => {
+    changeTodos([...todos, { id: v4(), text: 'New task!', isDone: false }]);
+  };
+
   return (
     <Window windowIcon={winIcon} windowTitle="Todo" minSize={minSize}>
-      <View style="flex: 1; flex-direction: 'row'; align-items: 'stretch';">
-        <TasksList todos={notDoneTodos} changeTodoStatus={changeTodoStatus} />
-        <View style="width: 1px; background: black;" />
-        <TasksList todos={doneTodos} changeTodoStatus={changeTodoStatus} />
+      <View>
+        <TopBar onAdd={addTodo} />
+        <View style="flex: 1; flex-direction: 'row'; align-items: 'stretch';">
+          <TasksList todos={notDoneTodos} changeTodoStatus={changeTodoStatus} />
+          <View style="width: 1px; background: black;" />
+          <TasksList todos={doneTodos} changeTodoStatus={changeTodoStatus} />
+        </View>
       </View>
     </Window>
   );
