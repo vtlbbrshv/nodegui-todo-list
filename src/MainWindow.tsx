@@ -1,7 +1,6 @@
 import { Window, View } from '@nodegui/react-nodegui';
 import React from 'react';
 import { QIcon } from '@nodegui/nodegui';
-import { v4 } from 'uuid';
 import nodeguiIcon from '../assets/nodegui.jpg';
 import { TasksList } from './components/TasksList/TasksList';
 import initialTodos from './todos';
@@ -29,7 +28,7 @@ const MainWindow = () => {
   };
 
   const addTodo = () => {
-    changeTodos([...todos, { id: v4(), text: 'New task!', isDone: false }]);
+    changeTodos([...todos, { id: todos.length, text: 'New task!', isDone: false }]);
   };
 
   return (
