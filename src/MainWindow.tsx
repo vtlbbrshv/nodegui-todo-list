@@ -28,7 +28,11 @@ const MainWindow = () => {
   };
 
   const addTodo = () => {
-    changeTodos([...todos, { id: todos.length, text: 'New task!', isDone: false }]);
+    console.log(todos);
+    changeTodos([
+      ...todos,
+      { id: todos.length + 1, text: 'New task!', isDone: false },
+    ]);
   };
 
   return (
