@@ -13,4 +13,5 @@ justify-content: 'space-between';
 
 export const textStyles = `
     qproperty-alignment: 'AlignHLeft';
+    color: 'black';
 `;
