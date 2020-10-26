@@ -13,7 +13,7 @@ export const styles = create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     background: '#e3ffff',
-    border: '1px solid #c0fcfc',
+    border: '1px solid',
     borderRadius: 10,
     paddingHorizontal: 30,
     paddingVertical: 10,
