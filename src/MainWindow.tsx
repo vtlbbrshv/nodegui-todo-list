@@ -1,6 +1,6 @@
-import { Window, View, ScrollArea } from '@nodegui/react-nodegui';
+import { Window, View, ScrollArea, BoxView } from '@nodegui/react-nodegui';
 import React from 'react';
-import { QIcon } from '@nodegui/nodegui';
+import { QIcon, Direction } from '@nodegui/nodegui';
 import nodeguiIcon from '../assets/nodegui.jpg';
 import { TasksList } from './components/TasksList/TasksList';
 import initialTodos from './todos';
@@ -31,20 +31,20 @@ const MainWindow = () => {
   // TODO: переписать на гридвью
   return (
     <Window windowIcon={winIcon} windowTitle="Todo" minSize={minSize}>
-      <View style="flex: 1; flex-direction: 'column'; align-items: 'stretch'">
+      <BoxView direction={Direction.TopToBottom}>
         <TopBar onAdd={addTodo} />
 
         <ScrollArea style="flex: 1">
-          <View style='flex: 1; flex-direction: "row";'>
+          <BoxView direction={Direction.LeftToRight}>
             <TasksList
               todos={notDoneTodos}
               changeTodoStatus={changeTodoStatus}
             />
             <View style="width: 1px; background: black;" />
             <TasksList todos={doneTodos} changeTodoStatus={changeTodoStatus} />
-          </View>
+          </BoxView>
         </ScrollArea>
-      </View>
+      </BoxView>
     </Window>
   );
 };
