@@ -12,10 +12,9 @@ export const TasksList = ({
   todos?: any;
   changeTodoStatus: (id: number, checked: boolean) => void;
 }) => {
-  // GridRow к сожалению не ререндерится при изменении пропсов,
+  // GridView к сожалению не ререндерится при изменении пропсов,
   // поэтому если просто промапить массив, то работать не будет
   // в rowProps всегда будет лежать первая версия объекта
-
   const rowProps = {
     '0': { stretch: 1 },
     '1': { stretch: 1 },
