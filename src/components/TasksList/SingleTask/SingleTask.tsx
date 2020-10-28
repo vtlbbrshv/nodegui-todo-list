@@ -1,6 +1,12 @@
-import { View, Text, CheckBox, useEventHandler } from '@nodegui/react-nodegui';
+import {
+  View,
+  Text,
+  CheckBox,
+  useEventHandler,
+  BoxView,
+} from '@nodegui/react-nodegui';
 import React from 'react';
-import { QCheckBoxSignals } from '@nodegui/nodegui';
+import { Direction, QCheckBoxSignals } from '@nodegui/nodegui';
 import { styles } from '../styles';
 
 export const SingleTask = ({
@@ -20,9 +26,10 @@ export const SingleTask = ({
   );
 
   return (
-    <View style={styles.task}>
+    <BoxView direction={Direction.LeftToRight} style={styles.task}>
       <Text style={styles.taskText}>{todo.text}</Text>
+      <View style="flex: 1;" />
       <CheckBox on={buttonHandler} checked={todo.isDone} />
-    </View>
+    </BoxView>
   );
 };

@@ -13,7 +13,7 @@ const TopBar = ({ onAdd }: { onAdd: () => void }) => {
   );
 
   return (
-    <View>
+    <View maxSize={{ width: 500, height: 30 }} style="height: 30px;">
       <Button on={buttonHandler} text="+" />
     </View>
   );

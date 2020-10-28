@@ -1,4 +1,4 @@
-import { Window, View, ScrollArea, BoxView } from '@nodegui/react-nodegui';
+import { Window, ScrollArea, BoxView } from '@nodegui/react-nodegui';
 import React from 'react';
 import { QIcon, Direction } from '@nodegui/nodegui';
 import nodeguiIcon from '../assets/nodegui.jpg';
@@ -34,13 +34,12 @@ const MainWindow = () => {
       <BoxView direction={Direction.TopToBottom}>
         <TopBar onAdd={addTodo} />
 
-        <ScrollArea style="flex: 1">
+        <ScrollArea>
           <BoxView direction={Direction.LeftToRight}>
             <TasksList
               todos={notDoneTodos}
               changeTodoStatus={changeTodoStatus}
             />
-            <View style="width: 1px; background: black;" />
             <TasksList todos={doneTodos} changeTodoStatus={changeTodoStatus} />
           </BoxView>
         </ScrollArea>
