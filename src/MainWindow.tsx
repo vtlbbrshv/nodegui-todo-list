@@ -33,16 +33,17 @@ const MainWindow = () => {
     <Window windowIcon={winIcon} windowTitle="Todo" minSize={minSize}>
       <BoxView direction={Direction.TopToBottom}>
         <TopBar onAdd={addTodo} />
-
-        <ScrollArea>
-          <BoxView direction={Direction.LeftToRight}>
+        <BoxView direction={Direction.LeftToRight}>
+          <ScrollArea>
             <TasksList
               todos={notDoneTodos}
               changeTodoStatus={changeTodoStatus}
             />
+          </ScrollArea>
+          <ScrollArea>
             <TasksList todos={doneTodos} changeTodoStatus={changeTodoStatus} />
-          </BoxView>
-        </ScrollArea>
+          </ScrollArea>
+        </BoxView>
       </BoxView>
     </Window>
   );
