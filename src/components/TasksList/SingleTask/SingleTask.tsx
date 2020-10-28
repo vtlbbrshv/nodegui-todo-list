@@ -28,7 +28,14 @@ export const SingleTask = ({
   return (
     <BoxView direction={Direction.LeftToRight} style={styles.task}>
       <Text style={styles.taskText}>{todo.text}</Text>
+
+      {/* Позиционирование или флексы в данном случае
+        почему-то не работают, поэтому так*/}
       <View style="flex: 1;" />
+      <View style="flex: 1;" />
+      <View style="flex: 1;" />
+      <View style="flex: 1;" />
+
       <CheckBox on={buttonHandler} checked={todo.isDone} />
     </BoxView>
   );
