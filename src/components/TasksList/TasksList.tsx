@@ -1,7 +1,9 @@
-import { BoxView } from '@nodegui/react-nodegui';
+import { GridView } from '@nodegui/react-nodegui';
+import { GridRow } from '@nodegui/react-nodegui/dist/components/GridView/GridRow';
+
 import React from 'react';
 import { SingleTask } from './SingleTask/SingleTask';
-import { Direction } from '@nodegui/nodegui';
+import { GridColumn } from '@nodegui/react-nodegui/dist/components/GridView/GridColumn';
 
 export const TasksList = ({
   todos,
@@ -10,11 +12,38 @@ export const TasksList = ({
   todos?: any;
   changeTodoStatus: (id: number, checked: boolean) => void;
 }) => {
+  // GridRow к сожалению не ререндерится при изменении пропсов
+  const rowProps = {
+    '0': { stretch: 1 },
+    '1': { stretch: 1 },
+    '2': { stretch: 1 },
+    '3': { stretch: 1 },
+    '4': { stretch: 1 },
+    '5': { stretch: 1 },
+    '6': { stretch: 1 },
+    '7': { stretch: 1 },
+    '8': { stretch: 1 },
+    '9': { stretch: 1 },
+    '10': { stretch: 1 },
+    '11': { stretch: 1 },
+    '12': { stretch: 1 },
+    '13': { stretch: 1 },
+    '14': { stretch: 1 },
+  };
+
   return (
-    <BoxView direction={Direction.TopToBottom}>
+    <GridView rowProps={rowProps}>
       {todos.map((el: any) => (
-        <SingleTask key={el.id} todo={el} changeTodoStatus={changeTodoStatus} />
+        <GridRow key={el.id}>
+          <GridColumn>
+            <SingleTask
+              key={el.id}
+              todo={el}
+              changeTodoStatus={changeTodoStatus}
+            />
+          </GridColumn>
+        </GridRow>
       ))}
-    </BoxView>
+    </GridView>
   );
 };
