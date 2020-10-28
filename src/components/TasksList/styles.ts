@@ -6,12 +6,10 @@ export const styles = create({
     border: '1px solid',
     borderRadius: 10,
     paddingVertical: 10,
-    margin: 5,
-    maxHeight: 15,
+    paddingRight: 100,
     minHeight: 15,
   },
   taskText: {
-    textAlign: 'left',
     color: 'black',
   },
 });
