@@ -1,11 +1,6 @@
 import { create } from 'nodegui-stylesheet';
 
 export const styles = create({
-  list: {
-    flex: 1,
-    alignItems: 'stretch',
-    alignSelf: 'flex-start',
-  },
   task: {
     background: '#e3ffff',
     border: '1px solid',
